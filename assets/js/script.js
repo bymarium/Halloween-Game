@@ -1,8 +1,9 @@
 let moveSpeed = 3, gravity = 0.5;
 let witch = document.querySelector('.witch');
 let img = document.getElementById('witch-1');
-let soundPoint = new Audio('../sounds/point.mp3');
-let soundDie = new Audio('../sounds/die.mp3');
+let soundPoint = new Audio('./assets/sounds/point.mp3');
+let soundDie = new Audio('./assets/sounds/die.mp3');
+let sound = new Audio('./assets/sounds/sound.mp3');
 
 let witchProps = witch.getBoundingClientRect();
 
@@ -62,6 +63,7 @@ function play() {
           element.style.left = pipeSpriteProps.left - moveSpeed + 'px';
         }
       }
+      sound.play();
     });
     requestAnimationFrame(move);
   }
@@ -73,14 +75,14 @@ function play() {
     witchDy = witchDy + gravity;
     document.addEventListener('keydown', (e) => {
       if (e.key == 'ArrowUp' || e.key == ' ') {
-        img.src = '../img/witch-2.png';
+        img.src = './assets/img/witch-1.png';
         witchDy = -7.6;
       }
     });
 
     document.addEventListener('keyup', (e) => {
       if (e.key == 'ArrowUp' || e.key == ' ') {
-        img.src = '../img/witch-1.png';
+        img.src = './assets/img/witch-2.png';
       }
     });
 
